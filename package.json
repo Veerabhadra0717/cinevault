@@ -1,0 +1,21 @@
+{
+  "name": "movie-seat-booking",
+  "version": "1.0.0",
+  "description": "Movie seat booking system with live seat updates (Express + Socket.IO + SQLite via sql.js)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test:race": "node tests/race-test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "compression": "^1.8.2",
+    "express": "^5.3.0",
+    "socket.io": "^4.8.4",
+    "sql.js": "^1.15.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
