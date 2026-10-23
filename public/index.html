@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cinevault: Book your seats</title>
+<meta name="description" content="Book movie tickets online. Pick your seats live, see showtimes and add snacks.">
+<meta name="theme-color" content="#9a1f4c">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script>
+  // Apply the saved theme before the page paints, so it doesn't flash
+  try { var t = localStorage.getItem('cv-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+</head>
+<body>
+  <header class="topbar-wrap"><div class="topbar">
+    <div class="topbar-left">
+      <a href="/" class="brand" aria-label="Cinevault home"><span class="brand-mark" aria-hidden="true"></span>Cinevault</a>
+      <label class="city-pick">
+        <span class="sr-only">Your city</span>
+        <select id="citySel"></select>
+      </label>
+    </div>
+    <nav>
+      <a href="/" data-nav="shows">Movies</a>
+      <a href="/bookings" data-nav="bookings">My tickets</a>
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch to dark theme">☾</button>
+    </nav>
+  </div></header>
+
+  <main id="app" tabindex="-1"></main>
+
+  <footer class="footer">
+    <div>
+      <b class="brand small">Cinevault</b>
+      <p>Movies and release dates are real. Cinemas, showtimes, prices and payments are simulated.</p>
+    </div>
+    <p class="footer-links"><a href="/">Movies</a><a href="/bookings">My tickets</a></p>
+  </footer>
+
+  <div class="seat-tip" id="seatTip" role="tooltip" hidden></div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- QR codes on tickets; if this can't load, tickets fall back to a barcode -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/api-real.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
